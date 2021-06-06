@@ -1,4 +1,16 @@
-#include <ThingSpeak.h>               // add librery
+/**
+  ******************************************************************************
+
+  Project: Wifi Rf Bridge 
+  Author:   Tp2-ing2: Mouadh Dahech   
+  Updated:  05/28/2021
+
+  Implimentation Board: Doit Esp32 Devkit V1
+  ******************************************************************************
+  */
+
+// add library
+#include <ThingSpeak.h>               
 #include <ESP8266WebServer.h>
 #include <RCSwitch.h>
 #include <EEPROM.h>
@@ -24,6 +36,7 @@ int j =0;
 int address = 0;
 uint32_t adjTbl[] = {0,0,0,0}; 
 String lastS;
+
 void setup()
 {
   pinMode(green,OUTPUT);
@@ -118,6 +131,7 @@ void loop()
      if(state == 2){
       ThingSpeak.writeField(counterChannelNumber, FieldNumber2, 6,myCounterwriteAPIKey);
       delay(300);
+      
       digitalWrite(green,LOW);
       delay(500);
       digitalWrite(green,HIGH);
